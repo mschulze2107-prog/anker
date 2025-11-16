@@ -286,6 +286,7 @@
       <strong>Hinweis:</strong> Dieses Tool bildet die Formelstruktur aus ES-TRIN vereinfacht ab.
       Es ersetzt <strong>nicht</strong> die Prüfung im Einzelfall, Klassifikationsregeln oder
       nationale Vorschriften. Für verbindliche Auslegungen sind die offiziellen Regelwerke maßgeblich.
+      Kettenlängen sind hier auf 60&nbsp;m (Kette) bzw. 70&nbsp;m (Draht) begrenzt.
     </div>
 
     <form id="calcForm" novalidate>
@@ -419,11 +420,11 @@
           </label>
           <select id="connectionType" required>
             <option value="">Bitte wählen …</option>
-            <option value="kette">Kette</option>
-            <option value="draht">Drahtseil (ersetzt Kette, 1,2 × Kettenlänge)</option>
+            <option value="kette">Kette (max. 60 m je Anker)</option>
+            <option value="draht">Drahtseil (1,2 × Kettenrichtwert, max. 70 m)</option>
           </select>
           <div class="hint">
-            Für Drahtseile wird die Richtlänge der Kette mit 1,2 multipliziert.
+            Draht: Richtlänge = 1,2 × Kettenrichtwert, jedoch technisch auf 70 m begrenzt.
           </div>
           <div class="error-text" data-error-for="connectionType"></div>
         </div>
@@ -453,7 +454,7 @@
             <input type="checkbox" id="sternStop" style="margin-left:8px; width:auto;" />
           </label>
           <div class="hint">
-            Wenn aktiviert, wird für Heckanker eine Richtlänge von 60 m statt 40 m angesetzt.
+            Wenn aktiviert, wird ein höherer Richtwert für die Heckanker-Länge angesetzt (z.B. 60 m Kette).
           </div>
         </div>
       </div>
@@ -513,6 +514,7 @@
         <code>k = c · √(L / (8 · B))</code> (Leichter: <code>k = c</code>).<br />
         <code>c</code> abhängig von Tragfähigkeit/Verdrängung (45 / 55 / 65 / 70).<br />
         Heckanker: 25&nbsp;% bzw. 50&nbsp;% von P (≤ 86&nbsp;m / &gt; 86&nbsp;m).<br />
+        Richtlängen: Kette max. 60&nbsp;m je Anker, Draht (1,2 × Richtwert) max. 70&nbsp;m.<br />
         Mindestbruchlast je Kette/Draht aus Ankergewicht nach ES-TRIN-Formel (vereinfacht).
       </div>
     </div>
@@ -611,20 +613,21 @@
         return 70;
       }
 
-      function bugChainLength(L) {
-        // ES-TRIN-ähnliche Richtwerte: <=40 m → 40 m; 40–50 m → L+10; >50 m → 60 m
+      // Richtwert Bugkette nach ES-TRIN-Logik:
+      // <=40 m → 40 m, 40–50 m → L+10, >50 m → 60 m (hier ohnehin max. 60 m)
+      function bugChainBase(L) {
         if (L <= 40) return 40;
         if (L <= 50) return L + 10;
         return 60;
       }
 
-      function sternChainLength(sternStop) {
-        // Vereinfachung: 40 m, bei Stoppen gegen Strömung 60 m
+      // Heckkette: 40 m, bei Stoppen gegen Strömung 60 m (Richtwert)
+      function sternChainBase(sternStop) {
         return sternStop ? 60 : 40;
       }
 
+      // Mindestbruchlast nach vereinfachter ES-TRIN-Formel
       function breakingLoad(P_kg) {
-        // Mindestbruchlast R in kN nach vereinfachter ES-TRIN-Formel
         const P = P_kg;
         if (P <= 0 || !isFinite(P)) return 0;
         let R;
@@ -641,7 +644,6 @@
       form.addEventListener("submit", function (e) {
         e.preventDefault();
 
-        // Pflichtfelder prüfen
         const vType = validateSelect(vesselType);
         const L = validateRequiredNumber(lengthInput, 1);
         const B = validateRequiredNumber(breadthInput, 1);
@@ -664,7 +666,6 @@
         const sf = Number(safetyFactorInput.value);
 
         const c = getC(capacity);
-        // k nach ES-TRIN: k = c * sqrt(L / (8B)), für Leichter k = c
         let k;
         if (isLighter) {
           k = c;
@@ -678,7 +679,7 @@
         }
         P = P * sf;
 
-        // Heckankeranteil: 25 % bis 86 m, 50 % bei L > 86 m
+        // Heckanteil: 25 % bzw. 50 % von P
         const sternShare = L > 86 ? 0.5 : 0.25;
         const P_stern_total = P * sternShare;
         const P_all = P + P_stern_total;
@@ -692,18 +693,24 @@
         const P_bow_per = P / bowCount;
         const P_stern_per = sternCount > 0 ? P_stern_total / sternCount : 0;
 
-        // Ketten-/Drahtlängen je Anker
-        const baseBowChain = bugChainLength(L);
-        const baseSternChain = sternChainLength(sternStopInput.checked);
+        // Basis-Richtlängen
+        const baseBow = bugChainBase(L);
+        const baseStern = sternChainBase(sternStopInput.checked);
 
-        let bowLen = baseBowChain;
-        let sternLen = baseSternChain;
-        if (conn === "draht") {
-          bowLen = baseBowChain * 1.2;
-          sternLen = baseSternChain * 1.2;
+        let bowLen = baseBow;
+        let sternLen = baseStern;
+
+        if (conn === "kette") {
+          // Kette: max. 60 m je Anker
+          bowLen = Math.min(baseBow, 60);
+          sternLen = Math.min(baseStern, 60);
+        } else if (conn === "draht") {
+          // Draht: 1,2 × Kettenrichtwert, max. 70 m je Anker
+          bowLen = Math.min(baseBow * 1.2, 70);
+          sternLen = Math.min(baseStern * 1.2, 70);
         }
 
-        // Mindestbruchlast je Ankerkette/-draht
+        // Mindestbruchlast je Ankerkette / -draht
         const R_bow = breakingLoad(P_bow_per);
         const R_stern = breakingLoad(P_stern_per);
 
@@ -712,15 +719,20 @@
         resAllTotal.textContent = P_all.toFixed(0) + " kg";
 
         resBowPer.textContent = P_bow_per.toFixed(0) + " kg";
-        resSternPer.textContent = sternCount > 0 ? P_stern_per.toFixed(0) + " kg" : "–";
+        resSternPer.textContent =
+          sternCount > 0 ? P_stern_per.toFixed(0) + " kg" : "–";
 
         resBowChain.textContent =
-          bowLen.toFixed(1) + " m " + (conn === "draht" ? "(Draht)" : "(Kette)");
+          bowLen.toFixed(1) +
+          " m " +
+          (conn === "draht" ? "(Draht, begrenzt auf 70 m)" : "(Kette, begrenzt auf 60 m)");
         resSternChain.textContent =
           sternCount > 0
             ? sternLen.toFixed(1) +
               " m " +
-              (conn === "draht" ? "(Draht)" : "(Kette)")
+              (conn === "draht"
+                ? "(Draht, begrenzt auf 70 m)"
+                : "(Kette, begrenzt auf 60 m)")
             : "–";
 
         resBowBreak.textContent =
