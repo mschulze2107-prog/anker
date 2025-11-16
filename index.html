@@ -9,42 +9,34 @@
       --bg: #0b1020;
       --card-bg: #151a2c;
       --accent: #4da3ff;
-      --accent-soft: rgba(77, 163, 255, 0.15);
+      --accent-soft: rgba(77,163,255,0.15);
       --text: #f7f7ff;
       --muted: #b3b9d4;
       --danger: #ff7070;
       --border: #262c44;
     }
-
     * {
       box-sizing: border-box;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
+      font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
     }
-
     body {
       margin: 0;
       padding: 16px;
-      background: radial-gradient(circle at top, #1f2c4d, #050816);
+      background: radial-gradient(circle at top,#1f2c4d,#050816);
       color: var(--text);
       display: flex;
       justify-content: center;
     }
-
     .app {
       width: 100%;
       max-width: 480px;
-      background: linear-gradient(145deg, #14192a, #0b0f1c);
+      background: linear-gradient(145deg,#14192a,#0b0f1c);
       border-radius: 16px;
       padding: 16px 16px 20px;
       border: 1px solid var(--border);
-      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 24px 50px rgba(0,0,0,0.6);
     }
-
-    header {
-      margin-bottom: 16px;
-    }
-
+    header { margin-bottom: 16px; }
     header h1 {
       font-size: 1.25rem;
       margin: 0 0 4px;
@@ -52,305 +44,227 @@
       align-items: center;
       gap: 8px;
     }
-
     header h1 span.icon {
-      width: 26px;
-      height: 26px;
+      width: 26px; height: 26px;
       border-radius: 8px;
-      background: radial-gradient(circle at 30% 30%, #fff, #4da3ff);
+      background: radial-gradient(circle at 30% 30%,#fff,#4da3ff);
       display: inline-flex;
       align-items: center;
       justify-content: center;
       font-size: 16px;
       color: #050816;
-      box-shadow: 0 0 12px rgba(77, 163, 255, 0.8);
+      box-shadow: 0 0 12px rgba(77,163,255,0.8);
     }
-
-    header p {
-      margin: 0;
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
+    header p { margin: 0; font-size: .8rem; color: var(--muted); }
     .badge-row {
       margin-top: 8px;
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
     }
-
     .badge {
-      font-size: 0.7rem;
+      font-size: .7rem;
       padding: 3px 8px;
       border-radius: 999px;
       border: 1px solid var(--border);
       color: var(--muted);
-      background: rgba(11, 16, 32, 0.85);
+      background: rgba(11,16,32,.85);
     }
-
     .badge.accent {
       border-color: var(--accent-soft);
       background: var(--accent-soft);
       color: var(--accent);
     }
-
     .info {
-      font-size: 0.7rem;
+      font-size: .7rem;
       color: var(--muted);
       margin-bottom: 10px;
       padding: 8px 10px;
       border-radius: 10px;
-      background: rgba(16, 24, 48, 0.9);
-      border: 1px dashed rgba(119, 136, 187, 0.7);
+      background: rgba(16,24,48,.9);
+      border: 1px dashed rgba(119,136,187,.7);
     }
-
-    .info strong {
-      color: var(--accent);
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
+    .info strong { color: var(--accent); }
+    form { display:flex; flex-direction:column; gap:12px; }
     .section {
       border-radius: 12px;
       padding: 10px 10px 6px;
-      background: rgba(9, 13, 30, 0.95);
+      background: rgba(9,13,30,.95);
       border: 1px solid var(--border);
-      position: relative;
     }
-
     .section-title {
-      font-size: 0.8rem;
+      font-size: .8rem;
       font-weight: 600;
       margin-bottom: 8px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
       color: var(--muted);
     }
-
-    .section-title span.label {
+    .section-title .label {
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-size: 0.7rem;
+      letter-spacing: .08em;
+      font-size: .7rem;
       color: var(--accent);
     }
-
-    .section-title span.small {
-      font-size: 0.7rem;
-    }
-
+    .section-title .small { font-size:.7rem; }
     .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:8px;
     }
-
-    .field {
-      margin-bottom: 6px;
-    }
-
+    .field { margin-bottom: 6px; }
     label {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      font-size: 0.78rem;
-      margin-bottom: 2px;
-      color: var(--text);
+      display:flex;
+      justify-content:space-between;
+      align-items:baseline;
+      font-size:.78rem;
+      margin-bottom:2px;
+      color:var(--text);
     }
-
     label .unit {
-      font-size: 0.7rem;
-      color: var(--muted);
-      margin-left: 6px;
+      font-size:.7rem;
+      color:var(--muted);
+      margin-left:6px;
     }
-
     label .req {
-      color: var(--danger);
-      margin-left: 4px;
-      font-size: 0.8em;
+      color:var(--danger);
+      margin-left:4px;
+      font-size:.8em;
     }
-
-    input,
-    select {
-      width: 100%;
-      padding: 6px 8px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      background: rgba(3, 6, 20, 0.95);
-      color: var(--text);
-      font-size: 0.85rem;
-      outline: none;
+    input, select {
+      width:100%;
+      padding:6px 8px;
+      border-radius:8px;
+      border:1px solid var(--border);
+      background:rgba(3,6,20,.95);
+      color:var(--text);
+      font-size:.85rem;
+      outline:none;
     }
-
-    input:focus,
-    select:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 1px rgba(77, 163, 255, 0.6);
+    input:focus, select:focus {
+      border-color:var(--accent);
+      box-shadow:0 0 0 1px rgba(77,163,255,.6);
     }
-
-    input.error,
-    select.error {
-      border-color: var(--danger);
-      box-shadow: 0 0 0 1px rgba(255, 112, 112, 0.5);
+    input.error, select.error {
+      border-color:var(--danger);
+      box-shadow:0 0 0 1px rgba(255,112,112,.5);
     }
-
     .hint {
-      font-size: 0.7rem;
-      color: var(--muted);
-      margin-top: 1px;
+      font-size:.7rem;
+      color:var(--muted);
+      margin-top:1px;
     }
-
     .error-text {
-      font-size: 0.7rem;
-      color: var(--danger);
-      margin-top: 2px;
+      font-size:.7rem;
+      color:var(--danger);
+      margin-top:2px;
     }
-
     .slider-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      display:flex;
+      align-items:center;
+      gap:8px;
     }
-
-    .slider-row input[type="range"] {
-      flex: 1;
-    }
-
+    .slider-row input[type="range"] { flex:1; }
     .slider-value {
-      min-width: 42px;
-      text-align: right;
-      font-size: 0.78rem;
-      color: var(--accent);
+      min-width:42px;
+      text-align:right;
+      font-size:.78rem;
+      color:var(--accent);
     }
-
     input[type="range"] {
-      -webkit-appearance: none;
-      appearance: none;
-      height: 4px;
-      border-radius: 999px;
-      background: #252b43;
-      outline: none;
+      -webkit-appearance:none;
+      appearance:none;
+      height:4px;
+      border-radius:999px;
+      background:#252b43;
+      outline:none;
     }
-
     input[type="range"]::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: var(--accent);
-      border: 2px solid #ffffff;
-      box-shadow: 0 0 10px rgba(77, 163, 255, 0.9);
-      cursor: pointer;
+      -webkit-appearance:none;
+      appearance:none;
+      width:16px; height:16px;
+      border-radius:50%;
+      background:var(--accent);
+      border:2px solid #fff;
+      box-shadow:0 0 10px rgba(77,163,255,.9);
+      cursor:pointer;
     }
-
-    input[type="range"]::-moz-range-thumb {
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: var(--accent);
-      border: 2px solid #ffffff;
-      box-shadow: 0 0 10px rgba(77, 163, 255, 0.9);
-      cursor: pointer;
+    input[type="range"]::-moz-range-thumb{
+      width:16px; height:16px;
+      border-radius:50%;
+      background:var(--accent);
+      border:2px solid #fff;
+      box-shadow:0 0 10px rgba(77,163,255,.9);
+      cursor:pointer;
     }
-
     button {
-      margin-top: 4px;
-      width: 100%;
-      padding: 10px;
-      border-radius: 999px;
-      border: none;
-      background: linear-gradient(135deg, #4da3ff, #7b5cff);
-      color: #050816;
-      font-weight: 600;
-      font-size: 0.9rem;
-      cursor: pointer;
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.7);
+      margin-top:4px;
+      width:100%;
+      padding:10px;
+      border-radius:999px;
+      border:none;
+      background:linear-gradient(135deg,#4da3ff,#7b5cff);
+      color:#050816;
+      font-weight:600;
+      font-size:.9rem;
+      cursor:pointer;
+      box-shadow:0 12px 25px rgba(0,0,0,.7);
     }
-
     button:active {
-      transform: translateY(1px);
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.7);
+      transform:translateY(1px);
+      box-shadow:0 8px 18px rgba(0,0,0,.7);
     }
-
     .results {
-      margin-top: 14px;
-      border-radius: 12px;
-      padding: 10px;
-      background: radial-gradient(circle at top left, #26345b, #070a18);
-      border: 1px solid var(--border);
+      margin-top:14px;
+      border-radius:12px;
+      padding:10px;
+      background:radial-gradient(circle at top left,#26345b,#070a18);
+      border:1px solid var(--border);
     }
-
-    .results h2 {
-      font-size: 0.9rem;
-      margin: 0 0 6px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .results h2{
+      font-size:.9rem;
+      margin:0 0 6px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
     }
-
-    .results h2 span {
-      font-size: 0.7rem;
-      color: var(--muted);
-      font-weight: 400;
+    .results h2 span{
+      font-size:.7rem;
+      color:var(--muted);
+      font-weight:400;
     }
-
-    .results-row {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.8rem;
-      margin-top: 4px;
+    .results-row{
+      display:flex;
+      justify-content:space-between;
+      font-size:.8rem;
+      margin-top:4px;
     }
-
-    .results-row span.label {
-      color: var(--muted);
+    .results-row .label{color:var(--muted);}
+    .results-row .value{font-weight:600;}
+    .results-small{
+      margin-top:8px;
+      font-size:.7rem;
+      color:var(--muted);
     }
-
-    .results-row span.value {
-      font-weight: 600;
+    .results-small code{
+      font-size:.68rem;
+      background:rgba(4,7,20,.9);
+      padding:2px 4px;
+      border-radius:4px;
+      border:1px solid #28304c;
     }
-
-    .results-small {
-      margin-top: 8px;
-      font-size: 0.7rem;
-      color: var(--muted);
+    .footer{
+      margin-top:10px;
+      font-size:.65rem;
+      color:var(--muted);
+      line-height:1.4;
     }
-
-    .results-small code {
-      font-size: 0.68rem;
-      background: rgba(4, 7, 20, 0.9);
-      padding: 2px 4px;
-      border-radius: 4px;
-      border: 1px solid #28304c;
-    }
-
-    .footer {
-      margin-top: 10px;
-      font-size: 0.65rem;
-      color: var(--muted);
-      line-height: 1.4;
-    }
-
-    .footer strong {
-      color: var(--accent);
-    }
-
-    @media (max-width: 380px) {
-      .app {
-        padding: 12px 10px 16px;
-      }
-
-      header h1 {
-        font-size: 1.1rem;
-      }
-
-      .grid-2 {
-        grid-template-columns: 1fr;
-      }
+    .footer strong{color:var(--accent);}
+    @media (max-width:380px){
+      .app{padding:12px 10px 16px;}
+      header h1{font-size:1.1rem;}
+      .grid-2{grid-template-columns:1fr;}
     }
   </style>
 </head>
@@ -361,7 +275,7 @@
         <span class="icon">⚓</span>
         Ankerrechner Binnenschiff
       </h1>
-      <p>Vereinfachte Abschätzung für Bug- und Heckanker (Deutschland / Binnen).</p>
+      <p>Vereinfachte Abschätzung für Bug- und Heckanker nach ES-TRIN-Logik.</p>
       <div class="badge-row">
         <span class="badge accent">Demo-Tool · keine amtliche Berechnung</span>
         <span class="badge">Mobile optimiert</span>
@@ -369,14 +283,13 @@
     </header>
 
     <div class="info">
-      <strong>Hinweis:</strong> Dieses Tool nutzt eine vereinfachte, parametrierbare
-      Berechnungslogik. Es ersetzt <strong>nicht</strong> ES-TRIN, Klassifikationsregeln
-      oder nationale Vorschriften. Für verbindliche Auslegungen sind die
-      offiziellen Regelwerke maßgeblich.
+      <strong>Hinweis:</strong> Dieses Tool bildet die Formelstruktur aus ES-TRIN vereinfacht ab.
+      Es ersetzt <strong>nicht</strong> die Prüfung im Einzelfall, Klassifikationsregeln oder
+      nationale Vorschriften. Für verbindliche Auslegungen sind die offiziellen Regelwerke maßgeblich.
     </div>
 
     <form id="calcForm" novalidate>
-      <!-- Abschnitt Schiffsdaten -->
+      <!-- Schiffsdaten -->
       <div class="section">
         <div class="section-title">
           <span class="label">Schiffsdaten</span>
@@ -390,13 +303,15 @@
           </label>
           <select id="vesselType" required>
             <option value="">Bitte wählen …</option>
-            <option value="gms">Gütermotorschiff</option>
-            <option value="tms">Tankmotorschiff</option>
-            <option value="schub">Schubboot / Schubverband</option>
+            <option value="gms">Gütermotorschiff / TMS</option>
+            <option value="leichter">Leichter</option>
             <option value="fahrgast">Fahrgastschiff</option>
+            <option value="schub">Schubboot / Schubverband</option>
             <option value="sonst">Sonstiges Binnenschiff</option>
           </select>
-          <div class="hint">Dient hier nur der Abschätzung; die Logik kann im Code angepasst werden.</div>
+          <div class="hint">
+            Güterschiffe: Bemessung über Tragfähigkeit; Fahrgastschiffe: über Verdrängung.
+          </div>
           <div class="error-text" data-error-for="vesselType"></div>
         </div>
 
@@ -408,7 +323,7 @@
               <span class="req">*</span>
             </label>
             <input type="number" id="length" min="1" step="0.1" required />
-            <div class="hint">Zugelassene Länge laut Schiffszeugnis.</div>
+            <div class="hint">Länge laut Schiffszeugnis.</div>
             <div class="error-text" data-error-for="length"></div>
           </div>
           <div class="field">
@@ -428,42 +343,52 @@
             <label for="draught">
               Tiefgang T
               <span class="unit">m</span>
-            </label>
-            <input type="number" id="draught" min="0" step="0.1" />
-            <div class="hint">Optional, für Dokumentation.</div>
-          </div>
-          <div class="field">
-            <label for="displacement">
-              Verdrängung / Tragfähigkeit
-              <span class="unit">t</span>
               <span class="req">*</span>
             </label>
-            <input type="number" id="displacement" min="1" step="1" required />
-            <div class="hint">Näherungsweise Masse des beladenen Schiffes.</div>
-            <div class="error-text" data-error-for="displacement"></div>
+            <input type="number" id="draught" min="0.1" step="0.1" required />
+            <div class="hint">Bemessungstiefgang.</div>
+            <div class="error-text" data-error-for="draught"></div>
+          </div>
+          <div class="field">
+            <label for="capacity">
+              Tragfähigkeit / Verdrängung
+              <span class="unit">t bzw. m³</span>
+              <span class="req">*</span>
+            </label>
+            <input type="number" id="capacity" min="1" step="1" required />
+            <div class="hint">
+              Güterschiffe: Deadweight in t. Fahrgastschiffe: Verdrängung in m³ (laut Zeugnis).
+            </div>
+            <div class="error-text" data-error-for="capacity"></div>
           </div>
         </div>
 
         <div class="field">
-          <label for="waterway">
-            Fahrtgebiet
-            <span class="req">*</span>
+          <label for="windArea">
+            Windangriffsfläche A<sub>f</sub>
+            <span class="unit">m²</span>
           </label>
-          <select id="waterway" required>
-            <option value="">Bitte wählen …</option>
-            <option value="fluss">Fluss mit stärkerer Strömung</option>
-            <option value="kanal">Kanal / geringe Strömung</option>
-            <option value="hafen">Hafen / Becken / ruhiges Gewässer</option>
-          </select>
-          <div class="hint">Beeinflusst den Basisfaktor in der Berechnung.</div>
-          <div class="error-text" data-error-for="waterway"></div>
+          <input type="number" id="windArea" min="0" step="1" />
+          <div class="hint">
+            Optional. Für Fahrgastschiffe kann P = k·B·T + 4·A<sub>f</sub> verwendet werden.
+          </div>
+        </div>
+
+        <div class="field">
+          <label>
+            <span>Windflächenformel anwenden (nur Fahrgastschiff)</span>
+            <input type="checkbox" id="useWindFormula" style="margin-left:8px; width:auto;" />
+          </label>
+          <div class="hint">
+            Wenn aktiviert und A<sub>f</sub> &gt; 0 eingetragen ist, wird P = k·B·T + 4·A<sub>f</sub> verwendet.
+          </div>
         </div>
       </div>
 
-      <!-- Abschnitt Berechnungsparameter -->
+      <!-- Auslegungsparameter -->
       <div class="section">
         <div class="section-title">
-          <span class="label">Berechnungsparameter</span>
+          <span class="label">Auslegungsparameter</span>
         </div>
 
         <div class="field">
@@ -476,34 +401,59 @@
               type="range"
               id="safetyFactor"
               min="1.0"
-              max="1.6"
+              max="1.5"
               step="0.05"
               value="1.20"
             />
             <span class="slider-value" id="safetyFactorValue">1.20</span>
           </div>
           <div class="hint">
-            Erhöht die resultierende Gesamtmasse P. Für konservative Auslegung
-            eher im oberen Bereich wählen.
+            Multipliziert das berechnete P. Konservative Auslegung → höherer Faktor.
           </div>
+        </div>
+
+        <div class="field">
+          <label for="connectionType">
+            Verbindung Anker / Schiff
+            <span class="req">*</span>
+          </label>
+          <select id="connectionType" required>
+            <option value="">Bitte wählen …</option>
+            <option value="kette">Kette</option>
+            <option value="draht">Drahtseil (ersetzt Kette, 1,2 × Kettenlänge)</option>
+          </select>
+          <div class="hint">
+            Für Drahtseile wird die Richtlänge der Kette mit 1,2 multipliziert.
+          </div>
+          <div class="error-text" data-error-for="connectionType"></div>
         </div>
 
         <div class="grid-2">
           <div class="field">
-            <label for="bowShare">
-              Anteil Buganker
-              <span class="unit">% von P</span>
+            <label for="bowCount">
+              Anzahl Buganker
+              <span class="req">*</span>
             </label>
-            <input type="number" id="bowShare" min="0" max="100" step="1" value="70" />
-            <div class="hint">Voreinstellung: 70 % Bug / 30 % Heck.</div>
+            <input type="number" id="bowCount" min="1" max="2" step="1" value="2" />
+            <div class="hint">Üblich sind 2 Buganker.</div>
           </div>
           <div class="field">
-            <label for="sternShare">
-              Anteil Heckanker
-              <span class="unit">% von P</span>
+            <label for="sternCount">
+              Anzahl Heckanker
+              <span class="req">*</span>
             </label>
-            <input type="number" id="sternShare" min="0" max="100" step="1" value="30" />
-            <div class="hint">Summe sollte 100 % ergeben.</div>
+            <input type="number" id="sternCount" min="0" max="2" step="1" value="1" />
+            <div class="hint">Heckanker je nach Schiff / Revier.</div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>
+            <span>Heckanker zum Stoppen gegen Strömung erforderlich (Bug zu Tal)?</span>
+            <input type="checkbox" id="sternStop" style="margin-left:8px; width:auto;" />
+          </label>
+          <div class="hint">
+            Wenn aktiviert, wird für Heckanker eine Richtlänge von 60 m statt 40 m angesetzt.
           </div>
         </div>
       </div>
@@ -511,108 +461,128 @@
       <button type="submit">Berechnung durchführen</button>
     </form>
 
-    <div class="results" id="results" style="display: none;">
+    <div class="results" id="results" style="display:none;">
       <h2>
         Ergebnisse (vereinfacht)
         <span id="resultScope"></span>
       </h2>
 
       <div class="results-row">
-        <span class="label">Gesamtmasse Anker P, empfohlen</span>
-        <span class="value" id="resTotalMass">–</span>
+        <span class="label">Buganker gesamt P</span>
+        <span class="value" id="resBowTotal">–</span>
       </div>
-
-      <div class="results-row">
-        <span class="label">Buganker gesamt</span>
-        <span class="value" id="resBowMass">–</span>
-      </div>
-
       <div class="results-row">
         <span class="label">Heckanker gesamt</span>
-        <span class="value" id="resSternMass">–</span>
+        <span class="value" id="resSternTotal">–</span>
+      </div>
+      <div class="results-row">
+        <span class="label">Gesamtmasse Anker (Bug + Heck)</span>
+        <span class="value" id="resAllTotal">–</span>
       </div>
 
       <div class="results-row">
-        <span class="label">Kettenlänge Bug (Richtwert)</span>
+        <span class="label">Masse je Buganker (≈)</span>
+        <span class="value" id="resBowPer">–</span>
+      </div>
+      <div class="results-row">
+        <span class="label">Masse je Heckanker (≈)</span>
+        <span class="value" id="resSternPer">–</span>
+      </div>
+
+      <div class="results-row">
+        <span class="label">Länge je Bugkette / -draht (Richtwert)</span>
         <span class="value" id="resBowChain">–</span>
       </div>
-
       <div class="results-row">
-        <span class="label">Kettenlänge Heck (Richtwert)</span>
+        <span class="label">Länge je Heckkette / -draht (Richtwert)</span>
         <span class="value" id="resSternChain">–</span>
       </div>
 
+      <div class="results-row">
+        <span class="label">Mindestbruchlast je Bugkette / -draht</span>
+        <span class="value" id="resBowBreak">–</span>
+      </div>
+      <div class="results-row">
+        <span class="label">Mindestbruchlast je Heckkette / -draht</span>
+        <span class="value" id="resSternBreak">–</span>
+      </div>
+
       <div class="results-small">
-        Verwendete Grundformel (vereinfacht):<br />
-        <code>P = Verdrängung [t] × Basisfaktor(Fahrtgebiet) × Sicherheitsfaktor</code><br />
-        Aktuell: Fluss = 4.0 · Kanal = 3.0 · Hafen = 2.5 (im Code anpassbar).
+        Formelgrundlagen (vereinfacht):<br />
+        <code>P = k · B · T · Sicherheitsfaktor</code>, mit
+        <code>k = c · √(L / (8 · B))</code> (Leichter: <code>k = c</code>).<br />
+        <code>c</code> abhängig von Tragfähigkeit/Verdrängung (45 / 55 / 65 / 70).<br />
+        Heckanker: 25&nbsp;% bzw. 50&nbsp;% von P (≤ 86&nbsp;m / &gt; 86&nbsp;m).<br />
+        Mindestbruchlast je Kette/Draht aus Ankergewicht nach ES-TRIN-Formel (vereinfacht).
       </div>
     </div>
 
     <div class="footer">
-      <strong>Disclaimer:</strong> Dieses Tool ist ein vereinfachtes Hilfsmittel zur überschlägigen
-      Abschätzung und internen Dokumentation. Es erhebt keinen Anspruch auf
-      Vollständigkeit oder Konformität mit ES-TRIN, Klassifikationsregeln oder
-      nationalen Rechtsvorschriften. Für verbindliche Auslegungen sind die
-      offiziellen Regelwerke und ggf. Klassifikationsgesellschaften heranzuziehen.
+      <strong>Disclaimer:</strong> Dieses Tool dient der überschlägigen technischen Abschätzung und
+      internen Dokumentation. Es erhebt keinen Anspruch auf Vollständigkeit oder Konformität im
+      Einzelfall. Maßgeblich sind ausschließlich ES-TRIN, nationale Vorschriften und ggf.
+      Vorgaben der Klassifikationsgesellschaften.
     </div>
   </div>
 
   <script>
     (function () {
       const form = document.getElementById("calcForm");
-      const safetyFactor = document.getElementById("safetyFactor");
-      const safetyFactorValue = document.getElementById("safetyFactorValue");
-
-      const resultsBox = document.getElementById("results");
-      const resTotalMass = document.getElementById("resTotalMass");
-      const resBowMass = document.getElementById("resBowMass");
-      const resSternMass = document.getElementById("resSternMass");
-      const resBowChain = document.getElementById("resBowChain");
-      const resSternChain = document.getElementById("resSternChain");
-      const resultScope = document.getElementById("resultScope");
 
       const vesselType = document.getElementById("vesselType");
       const lengthInput = document.getElementById("length");
       const breadthInput = document.getElementById("breadth");
       const draughtInput = document.getElementById("draught");
-      const displacementInput = document.getElementById("displacement");
-      const waterwayInput = document.getElementById("waterway");
-      const bowShareInput = document.getElementById("bowShare");
-      const sternShareInput = document.getElementById("sternShare");
+      const capacityInput = document.getElementById("capacity");
+      const windAreaInput = document.getElementById("windArea");
+      const useWindFormulaInput = document.getElementById("useWindFormula");
+      const safetyFactorInput = document.getElementById("safetyFactor");
+      const safetyFactorValue = document.getElementById("safetyFactorValue");
+      const connectionType = document.getElementById("connectionType");
+      const bowCountInput = document.getElementById("bowCount");
+      const sternCountInput = document.getElementById("sternCount");
+      const sternStopInput = document.getElementById("sternStop");
 
-      safetyFactor.addEventListener("input", function () {
+      const resultsBox = document.getElementById("results");
+      const resultScope = document.getElementById("resultScope");
+      const resBowTotal = document.getElementById("resBowTotal");
+      const resSternTotal = document.getElementById("resSternTotal");
+      const resAllTotal = document.getElementById("resAllTotal");
+      const resBowPer = document.getElementById("resBowPer");
+      const resSternPer = document.getElementById("resSternPer");
+      const resBowChain = document.getElementById("resBowChain");
+      const resSternChain = document.getElementById("resSternChain");
+      const resBowBreak = document.getElementById("resBowBreak");
+      const resSternBreak = document.getElementById("resSternBreak");
+
+      safetyFactorInput.addEventListener("input", function () {
         safetyFactorValue.textContent = Number(this.value).toFixed(2);
       });
 
       function setError(input, message) {
         input.classList.add("error");
-        const errorBox = document.querySelector(
+        const box = document.querySelector(
           '.error-text[data-error-for="' + input.id + '"]'
         );
-        if (errorBox) {
-          errorBox.textContent = message || "";
-        }
+        if (box) box.textContent = message || "";
       }
 
       function clearError(input) {
         input.classList.remove("error");
-        const errorBox = document.querySelector(
+        const box = document.querySelector(
           '.error-text[data-error-for="' + input.id + '"]'
         );
-        if (errorBox) {
-          errorBox.textContent = "";
-        }
+        if (box) box.textContent = "";
       }
 
       function validateRequiredNumber(input, minValue) {
         clearError(input);
-        const value = input.value.trim();
-        if (!value) {
+        const raw = input.value.trim();
+        if (!raw) {
           setError(input, "Pflichtfeld – bitte ausfüllen.");
           return null;
         }
-        const num = Number(value.replace(",", "."));
+        const num = Number(raw.replace(",", "."));
         if (isNaN(num) || (typeof minValue === "number" && num < minValue)) {
           setError(
             input,
@@ -634,6 +604,40 @@
         return input.value;
       }
 
+      function getC(capacity) {
+        if (capacity <= 400) return 45;
+        if (capacity <= 650) return 55;
+        if (capacity <= 1000) return 65;
+        return 70;
+      }
+
+      function bugChainLength(L) {
+        // ES-TRIN-ähnliche Richtwerte: <=40 m → 40 m; 40–50 m → L+10; >50 m → 60 m
+        if (L <= 40) return 40;
+        if (L <= 50) return L + 10;
+        return 60;
+      }
+
+      function sternChainLength(sternStop) {
+        // Vereinfachung: 40 m, bei Stoppen gegen Strömung 60 m
+        return sternStop ? 60 : 40;
+      }
+
+      function breakingLoad(P_kg) {
+        // Mindestbruchlast R in kN nach vereinfachter ES-TRIN-Formel
+        const P = P_kg;
+        if (P <= 0 || !isFinite(P)) return 0;
+        let R;
+        if (P <= 500) {
+          R = 0.35 * P;
+        } else if (P <= 2000) {
+          R = (0.35 - (P - 500) / 15000) * P;
+        } else {
+          R = 0.25 * P;
+        }
+        return R;
+      }
+
       form.addEventListener("submit", function (e) {
         e.preventDefault();
 
@@ -641,85 +645,95 @@
         const vType = validateSelect(vesselType);
         const L = validateRequiredNumber(lengthInput, 1);
         const B = validateRequiredNumber(breadthInput, 1);
-        const D = validateRequiredNumber(displacementInput, 1);
-        const waterway = validateSelect(waterwayInput);
+        const T = validateRequiredNumber(draughtInput, 0.1);
+        const capacity = validateRequiredNumber(capacityInput, 1);
+        const conn = validateSelect(connectionType);
 
-        // optionale Felder
-        clearError(draughtInput);
-        const T = draughtInput.value
-          ? Number(draughtInput.value.replace(",", "."))
-          : null;
-
-        // Anteil Bug/Heck prüfen, wenn ausgefüllt
-        let bowShare = Number(bowShareInput.value.replace(",", "."));
-        let sternShare = Number(sternShareInput.value.replace(",", "."));
-        if (isNaN(bowShare)) bowShare = 70;
-        if (isNaN(sternShare)) sternShare = 30;
-
-        if (bowShare + sternShare !== 100) {
-          // Normalisieren
-          const sum = bowShare + sternShare;
-          if (sum > 0) {
-            bowShare = (bowShare / sum) * 100;
-            sternShare = 100 - bowShare;
-          } else {
-            bowShare = 70;
-            sternShare = 30;
-          }
-          bowShareInput.value = bowShare.toFixed(0);
-          sternShareInput.value = sternShare.toFixed(0);
-        }
-
-        if (!vType || !L || !B || !D || !waterway) {
+        if (!vType || !L || !B || !T || !capacity || !conn) {
           resultsBox.style.display = "none";
           return;
         }
 
-        const sf = Number(safetyFactor.value);
+        const isPassenger = vType === "fahrgast";
+        const isLighter = vType === "leichter";
 
-        // Basisfaktoren nach Fahrtgebiet (frei wählbar / anpassbar)
-        const baseFactorByWaterway = {
-          fluss: 4.0,
-          kanal: 3.0,
-          hafen: 2.5,
-        };
+        const AfRaw = windAreaInput.value.trim();
+        const Af = AfRaw ? Number(AfRaw.replace(",", ".")) : 0;
+        const useWind = isPassenger && useWindFormulaInput.checked && Af > 0;
 
-        let baseFactor = baseFactorByWaterway[waterway] || 3.0;
+        const sf = Number(safetyFactorInput.value);
 
-        // einfacher Längenfaktor: sehr lange Schiffe etwas höher gewichten
-        if (L > 110) baseFactor *= 1.1;
-        else if (L < 60) baseFactor *= 0.9;
+        const c = getC(capacity);
+        // k nach ES-TRIN: k = c * sqrt(L / (8B)), für Leichter k = c
+        let k;
+        if (isLighter) {
+          k = c;
+        } else {
+          k = c * Math.sqrt(L / (8 * B));
+        }
 
-        // zusätzliche Anpassung je Schiffstyp (sehr grob)
-        let typeFactor = 1.0;
-        if (vType === "schub") typeFactor = 1.1;
-        if (vType === "fahrgast") typeFactor = 0.95;
+        let P = k * B * T; // kg
+        if (useWind) {
+          P = P + 4 * Af;
+        }
+        P = P * sf;
 
-        // Hauptformel (frei gewählt, bewusst einfach):
-        // P_total [kg] ≈ Verdrängung[t] × Basisfaktor × Typfaktor × Sicherheitsfaktor × 10
-        const P_total =
-          D * baseFactor * typeFactor * sf * 10; // kg
+        // Heckankeranteil: 25 % bis 86 m, 50 % bei L > 86 m
+        const sternShare = L > 86 ? 0.5 : 0.25;
+        const P_stern_total = P * sternShare;
+        const P_all = P + P_stern_total;
 
-        // Verteilung Bug / Heck
-        const P_bow = (P_total * bowShare) / 100;
-        const P_stern = (P_total * sternShare) / 100;
+        // Anzahl Anker
+        let bowCount = Number(bowCountInput.value.replace(",", "."));
+        let sternCount = Number(sternCountInput.value.replace(",", "."));
+        if (!isFinite(bowCount) || bowCount < 1) bowCount = 1;
+        if (!isFinite(sternCount) || sternCount < 0) sternCount = 0;
 
-        // Richtwerte Kettenlängen (frei gewählt):
-        // Bug: max(4 × L, 40 m)
-        // Heck: max(3 × L, 30 m)
-        const chainBow = Math.max(4 * L, 40);
-        const chainStern = Math.max(3 * L, 30);
+        const P_bow_per = P / bowCount;
+        const P_stern_per = sternCount > 0 ? P_stern_total / sternCount : 0;
 
-        resTotalMass.textContent = P_total.toFixed(0) + " kg";
-        resBowMass.textContent = P_bow.toFixed(0) + " kg";
-        resSternMass.textContent = P_stern.toFixed(0) + " kg";
-        resBowChain.textContent = chainBow.toFixed(0) + " m";
-        resSternChain.textContent = chainStern.toFixed(0) + " m";
+        // Ketten-/Drahtlängen je Anker
+        const baseBowChain = bugChainLength(L);
+        const baseSternChain = sternChainLength(sternStopInput.checked);
+
+        let bowLen = baseBowChain;
+        let sternLen = baseSternChain;
+        if (conn === "draht") {
+          bowLen = baseBowChain * 1.2;
+          sternLen = baseSternChain * 1.2;
+        }
+
+        // Mindestbruchlast je Ankerkette/-draht
+        const R_bow = breakingLoad(P_bow_per);
+        const R_stern = breakingLoad(P_stern_per);
+
+        resBowTotal.textContent = P.toFixed(0) + " kg";
+        resSternTotal.textContent = P_stern_total.toFixed(0) + " kg";
+        resAllTotal.textContent = P_all.toFixed(0) + " kg";
+
+        resBowPer.textContent = P_bow_per.toFixed(0) + " kg";
+        resSternPer.textContent = sternCount > 0 ? P_stern_per.toFixed(0) + " kg" : "–";
+
+        resBowChain.textContent =
+          bowLen.toFixed(1) + " m " + (conn === "draht" ? "(Draht)" : "(Kette)");
+        resSternChain.textContent =
+          sternCount > 0
+            ? sternLen.toFixed(1) +
+              " m " +
+              (conn === "draht" ? "(Draht)" : "(Kette)")
+            : "–";
+
+        resBowBreak.textContent =
+          R_bow > 0 ? R_bow.toFixed(1) + " kN (je Bugkette/-draht)" : "–";
+        resSternBreak.textContent =
+          sternCount > 0 && R_stern > 0
+            ? R_stern.toFixed(1) + " kN (je Heckkette/-draht)"
+            : "–";
 
         let scopeText = "";
-        if (waterway === "fluss") scopeText = "Fluss (vereinfacht)";
-        if (waterway === "kanal") scopeText = "Kanal (vereinfacht)";
-        if (waterway === "hafen") scopeText = "Hafen / Becken (vereinfacht)";
+        if (isPassenger) scopeText = "Fahrgastschiff (vereinfacht)";
+        else if (isLighter) scopeText = "Leichter (vereinfacht)";
+        else scopeText = "Güter-/Binnenschiff (vereinfacht)";
         resultScope.textContent = scopeText;
 
         resultsBox.style.display = "block";
